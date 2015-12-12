@@ -1,0 +1,25 @@
+{
+  "name": "project-01",
+  "version": "1.0.0",
+  "description": "First project utilizing a Full-Stack based around getting data from Bay Area Bikeshare and serving the information to the user.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trebloc/project-01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trebloc/project-01/issues"
+  },
+  "homepage": "https://github.com/trebloc/project-01#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1",
+    "nodemon": "^1.8.1"
+  }
+}
