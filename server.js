@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -29,4 +29,14 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.listen(process.env.PORT || 3000)
+app.get('/api/stations', function stationsIndex(req, res) {
+  db.Station.find({}, function(err, stations) {
+    res.json(stations);
+  });
+});
+
+
+// app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Express server is running on http://localhost:3000/');
+});
