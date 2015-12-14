@@ -29,6 +29,12 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/suggest_stations', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/suggest_stations.html');
+});
+
+/* API Endpoint */
+
 app.get('/api/stations', function stationsIndex(req, res) {
   db.Station.find({}, function(err, stations) {
     res.json(stations);
