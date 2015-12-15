@@ -49,6 +49,7 @@ app.get('/api/suggest', function suggestIndex(req, res) {
 });
 
 app.post('/api/suggest', function suggestCreate(req, res) {
+  console.log("Create New Data");
   console.log('body', req.body);
   db.Suggest.create(req.body, function(err, suggest) {
     if (err) { console.log('error', err); }

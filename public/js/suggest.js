@@ -61,57 +61,59 @@
 
 $(document).on('ready', function() {
 	var searchUrl = "/api/suggest";
-	var $results = $('#suggest');
+	var results = $('#suggest');
 	var source = $('#station-template').html();
-	console.log(source);
+	// console.log(source);
 	var template = Handlebars.compile(source);
 	$.ajax({
 		method: 'GET',
 		url: searchUrl,
 		success: function (data) {
 			data.forEach(function(suggestion) {
-				console.log("this is the suggest id", suggestion._id)
+				// console.log("this is the suggest id", suggestion._id)
 				var html = template(suggestion);
 				$('#suggest').append(html);
 			});
 		}
 	});
 
-$('.form-horizontal').on('submit', function(e) {
-	console.log("It works!");
-	e.preventDefault();
-	console.log($(this));
-    var formData = $(this).serialize();
-    console.log(formData);
+	$('.form-horizontal').on('submit', function(e) {
+		console.log("It works!");
+		e.preventDefault();
+		console.log($(this));
+	    var formData = $(this).serialize();
+	    //console.log(formData);
 
-   //  $.ajax({
-   //  	method: 'POST'
-   //  	url: searchURL,
-   //  	success: function (data) {
-			// data.forEach(function(suggestion) {
-			// 	console.log("this is the suggest id", suggestion._id)
-			// 	var html = formData(suggestion);
-			// 	$('#suggest').append(html);
-			// });
-		// }	
-    })
+		$.ajax({
+		  	method: "POST",
+		  	url: searchUrl,
+		  	data: formData,
+	    	success: function (data) {
+	    		console.log(data);
+				var html = template(data);
+				$('#suggest').append(html);
+		    }
+	    });
 
-  });	
-  	
+	});	
+	  	
 
-$('#suggest').on('click', '.delete-station', function(e) {
-	console.log("It Works!");
-	var id = $(this).parents('.station').data('station-id');
-	console.log("this is the suggest id", id);
-$.ajax({
-	method: 'DELETE',
-	url: ('/api/suggest/' + id),
-	success: function() {
-	console.log("Suggestion Deleted!");
-	$('[data-station-id=' + id + ']').remove();
-	}		
-});
+	$('#suggest').on('click', '.delete-station', function(e) {
+		console.log("It Works!");
+		var id = $(this).parents('.station').data('station-id');
+		console.log("this is the suggest id", id);
+
+		$.ajax({
+			method: 'DELETE',
+			url: ('/api/suggest/' + id),
+			success: function() {
+				console.log("Suggestion Deleted!");
+				$('[data-station-id=' + id + ']').remove();
+			}		
+		});
 	});
+
+});
 
 	// suggestList.forEach(function(suggestion) {
 	// 	var html = template(suggestion);
