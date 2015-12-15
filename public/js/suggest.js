@@ -66,8 +66,11 @@ $(document).on('ready', function() {
 	var source = $('#station-template').html();
 	console.log(source);
 	var template = Handlebars.compile(source);
-	var html = template(suggestList[0]);
-	$('#suggest').append(html);
+	suggestList.forEach(function(suggestion) {
+		var html = template(suggestion);
+		$('#suggest').append(html);
+	});
+	
 	var searchUrl = "/api/suggest";
 	var $results = $('#suggest');
 
