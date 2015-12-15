@@ -77,6 +77,28 @@ $(document).on('ready', function() {
 		}
 	});
 
+$('.form-horizontal').on('submit', function(e) {
+	console.log("It works!");
+	e.preventDefault();
+	console.log($(this));
+    var formData = $(this).serialize();
+    console.log(formData);
+
+   //  $.ajax({
+   //  	method: 'POST'
+   //  	url: searchURL,
+   //  	success: function (data) {
+			// data.forEach(function(suggestion) {
+			// 	console.log("this is the suggest id", suggestion._id)
+			// 	var html = formData(suggestion);
+			// 	$('#suggest').append(html);
+			// });
+		// }	
+    })
+
+  });	
+  	
+
 $('#suggest').on('click', '.delete-station', function(e) {
 	console.log("It Works!");
 	var id = $(this).parents('.station').data('station-id');
@@ -90,7 +112,7 @@ $.ajax({
 	}		
 });
 	});
-});
+
 	// suggestList.forEach(function(suggestion) {
 	// 	var html = template(suggestion);
 	// 	$('#suggest').append(html);

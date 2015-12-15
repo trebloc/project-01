@@ -48,6 +48,16 @@ app.get('/api/suggest', function suggestIndex(req, res) {
   });
 });
 
+app.post('/api/suggest', function suggestCreate(req, res) {
+  console.log('body', req.body);
+  db.Suggest.create(req.body, function(err, suggest) {
+    if (err) { console.log('error', err); }
+    console.log(suggest);
+    res.json(suggest);
+  });
+
+});
+
 app.delete('/api/suggest/:id', function suggestIndex(req, res) {
 	console.log('deleting id:', req.params.id);
 	db.Suggest.remove({_id: req.params.id}, function(err, suggestion) {
