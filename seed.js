@@ -45,6 +45,7 @@ stationList.push({
               totalDocks: 15
             });
 
+
 db.Station.remove({}, function(err, stations){
 
   db.Station.create(stationList, function(err, stations){

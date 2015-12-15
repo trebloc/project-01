@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bay Area Bikeshare: Suggest a Station</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+<!-- APPLICATION SCRIPTS -->
+    <script src="js/suggest.js"></script>
+
+  </head>
+  <body>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Bay Area Bikeshare!</h1>
+        <p>Suggest a Station!</p>
+      </div>
+    </div>
+
+    <section class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Stations</h2>
+        </div>
+      </div>
+      <!-- stations! -->
+      <div id='suggest'>
+      </div>
+    </section>
+
+
+
+
+
+
+<!-- handlebars template -->
+<script id="station-template" type="text/x-handlebars-template">
+
+  <!-- one station -->
+  <div class='row station' data-station-id='{{_id}}'>
+    <div class='col-md-10 col-md-offset-1'>
+      <div class='panel panel-default'>
+        <div class='panel-body'>
+          <!-- begin station internal row -->
+            <div class='row'>
+              <div class='col-md-9 col-xs-12'>
+                <ul class='list-group'>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>User Name:</h4>
+                      <span class='user-name'>{{userName}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Suggested Station:</h4>
+                      <span class='station-name'>{{suggestStation}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Latitude:</h4>
+                      <span class='station-latitude'>{{latitude}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Longitude:</h4>
+                      <span class='station-latitude'>-{{longitude}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>City:</h4>
+                      <span class='station-city'>{{city}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Why?:</h4>
+                      <span class='station-why'>{{whyComment}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Date:</h4>
+                      <span class='station-date'>{{date}}</span>
+                  </li>                      
+                </ul>
+              </div>
+            </div>
+          <!-- end of station internal row -->
+        </div>
+      </div>  
+    </div>
+  </div>
+                
+   <!-- end one station -->
+
+
+
+</script>
+
+
+
+
+
+  </body>
+</html>

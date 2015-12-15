@@ -28,9 +28,9 @@ var db = require('./models');
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
-app.get('/suggest_stations', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/suggest_stations.html');
+	
+app.get('/suggest', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/suggest.html');
 });
 
 /* API Endpoint */
@@ -41,6 +41,11 @@ app.get('/api/stations', function stationsIndex(req, res) {
   });
 });
 
+app.get('/api/suggest', function suggestIndex(req, res) {
+  db.Suggest.find({}, function(err, suggest) {
+    res.json(suggest);
+  });
+});
 
 // app.listen(process.env.PORT || 3000)
 app.listen(process.env.PORT || 3000, function () {

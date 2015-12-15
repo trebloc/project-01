@@ -12,19 +12,19 @@ function initListeners () {
 
 
   $('.modal').on('shown.bs.modal', function () {
-  	var modalId = $(this).attr('id');
-  	var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(0).text();
-  	var latitude = $('#stations').find("span[class='station-latitude']").eq(0).text();
-var longitude = $('#stations').find("span[class='station-longitude']").eq(0).text();
-var status = $('#stations').find("span[class='station-status']").eq(0).text();  	
-var city = $('#stations').find("span[class='station-city']").eq(0).text(); 
-var totalDocks = $('#stations').find("span[class='station-total-docks']").eq(0).text();  	
-  	$(this).find('span.station-name').text(stationName);
-  	$(this).find('span.station-latitude').text(latitude); 
-  	$(this).find('span.station-longitude').text(longitude); 
-  	$(this).find('span.station-status').text(status);  
-  	$(this).find('span.station-city').text(city);  
-  	$(this).find('span.station-total-docks').text(totalDocks);    	  		 	 	
+    var modalId = $(this).attr('id');
+    var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(0).text();
+    var latitude = $('#stations').find("span[class='station-latitude']").eq(0).text();
+    var longitude = $('#stations').find("span[class='station-longitude']").eq(0).text();
+    var status = $('#stations').find("span[class='station-status']").eq(0).text();    
+    var city = $('#stations').find("span[class='station-city']").eq(0).text(); 
+    var totalDocks = $('#stations').find("span[class='station-total-docks']").eq(0).text();   
+    $(this).find('span.station-name').text(stationName);
+    $(this).find('span.station-latitude').text(latitude); 
+    $(this).find('span.station-longitude').text(longitude); 
+    $(this).find('span.station-status').text(status);  
+    $(this).find('span.station-city').text(city);  
+    $(this).find('span.station-total-docks').text(totalDocks);                
   })
 
 };
@@ -78,21 +78,14 @@ function renderStation(station, index) {
     "          </div>" +
   "          <!-- end one station -->";
  /* buildSongsHtml(album.songs) +
-
-
-
-
   "              </div>" + // end of panel-body
-
   "              <div class='panel-footer'>" +
   "                <button class='btn btn-primary add-song'>Add Song</button>" +
   "                <button class='btn btn-info edit-album'>Edit Album</button>" +
   "                <button class='btn btn-danger delete-album'>Delete Album</button>" +
   "                <button class='btn btn-success save-album default-hidden'>Save Changes</button>" +
   "              </div>" +
-
   "            </div>" +
-
 */
   $('#stations').prepend(stationHtml);
  }
