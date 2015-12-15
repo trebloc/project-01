@@ -43,9 +43,20 @@ app.get('/api/stations', function stationsIndex(req, res) {
 
 app.get('/api/suggest', function suggestIndex(req, res) {
   db.Suggest.find({}, function(err, suggest) {
+    // console.log(suggest);
     res.json(suggest);
   });
 });
+
+app.delete('/api/suggest/:id', function suggestIndex(req, res) {
+	console.log('deleting id:', req.params.id);
+	db.Suggest.remove({_id: req.params.id}, function(err, suggestion) {
+		if (err) {console.log('error', err); }
+		console.log('suggestion deleted: ' , req.params.id , suggestion.suggestStation);
+		res.status(200).send();
+	});
+});
+
 
 // app.listen(process.env.PORT || 3000)
 app.listen(process.env.PORT || 3000, function () {
