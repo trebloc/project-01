@@ -3,9 +3,23 @@ $(document).ready(function() {
   console.log('app.js loaded!');
   $.get('/api/stations').success(function (stations) {
     stations.forEach(function(station, index) {
+       
       renderStation(station, index);
     });  // forEach
   });  // $.get
+  $(".comment-form").on("submit", function(event){
+    event.preventDefault();
+    var comments = ($( this ).serialize());
+    var thisStationID = $('.row.station').eq(0).attr('data-station-id');
+    console.log(thisStationID);
+    $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
+      console.log(data);
+        
+    });
+
+    
+  });
+
 }); // $(document).ready
 
 function initListeners () {
@@ -13,6 +27,9 @@ function initListeners () {
 
   $('.modal').on('shown.bs.modal', function () {
     var modalId = $(this).attr('id');
+    // console.log(modalId);
+    var stationId = $('.row.station').eq(0).attr('data-station-id');
+    console.log(stationId);
     var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(0).text();
     var latitude = $('#stations').find("span[class='station-latitude']").eq(0).text();
     var longitude = $('#stations').find("span[class='station-longitude']").eq(0).text();
@@ -24,11 +41,20 @@ function initListeners () {
     $(this).find('span.station-longitude').text(longitude); 
     $(this).find('span.station-status').text(status);  
     $(this).find('span.station-city').text(city);  
-    $(this).find('span.station-total-docks').text(totalDocks);                
+    $(this).find('span.station-total-docks').text(totalDocks); 
+    $(this).find('input#stationId').attr('value', stationId);
+    $.get('api/stations/' + stationId + '/comments', function (comments) {
+      console.log('Comments: ', comments);
+      comments.forEach(function(comment) {
+          $("#comments").append("<p>User Name: " + comment.userName + "</p>");  
+          $("#comments").append("<p>Comment Type: " + comment.commentType + "</p>");  
+          $("#comments").append("<p>Comment: " + comment.userComment + "</p><br><hr>");  
+      });
+    })
   })
 
 };
-
+// $('.row.station').attr('data','station-id')
 
 // this function takes a single station and renders it to the page
 function renderStation(station, index) {
@@ -77,15 +103,6 @@ function renderStation(station, index) {
   "                <!-- end of station internal row -->" +
     "          </div>" +
   "          <!-- end one station -->";
- /* buildSongsHtml(album.songs) +
-  "              </div>" + // end of panel-body
-  "              <div class='panel-footer'>" +
-  "                <button class='btn btn-primary add-song'>Add Song</button>" +
-  "                <button class='btn btn-info edit-album'>Edit Album</button>" +
-  "                <button class='btn btn-danger delete-album'>Delete Album</button>" +
-  "                <button class='btn btn-success save-album default-hidden'>Save Changes</button>" +
-  "              </div>" +
-  "            </div>" +
-*/
   $('#stations').prepend(stationHtml);
  }
+

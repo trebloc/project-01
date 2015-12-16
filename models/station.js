@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var Comment = require('./comments');
+
 var StationSchema = new Schema({
   stationName: String,
   latitude: Number, // always be a positive 
@@ -8,7 +10,7 @@ var StationSchema = new Schema({
   status: String,
   city: String,
   totalDocks: Number,
-  // comments: [commentsSchema] // comments on surrounding area of this station
+  comments: [Comment.schema] // comments on surrounding area of this station
 });
 
 var Station = mongoose.model('Station', StationSchema);

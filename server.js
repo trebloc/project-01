@@ -41,6 +41,33 @@ app.get('/api/stations', function stationsIndex(req, res) {
   });
 });
 
+app.get('/api/stations/:stationId/comments', function (req, res) {
+  db.Station.findOne({_id: req.params.stationId}, function(err, station) {
+		res.json(station.comments);
+  });
+});
+
+// create comment embedded in stations
+app.post('/api/stations/:stationId/comments', function (req, res) {
+ // set the value of the station id
+ var stationId = req.params.stationId;
+ console.log("Station ID is: " + stationId);
+ 
+ // store new comment in memory with data from request body
+ var newComment = new db.Comment(req.body);
+ // req.body.comment is going to be form data a user filled in for a comment
+ console.log("User input the comment: " , newComment)
+
+ // find station in db by id and add new comment
+ db.Station.findOne({_id: stationId}, function (err, foundStation) {
+   foundStation.comments.push(newComment);
+   console.log("Here are the station comments:", foundStation.comments);
+   foundStation.save(function (err, savedStation) {
+     res.json(newComment);
+   });
+ });
+});
+
 app.get('/api/suggest', function suggestIndex(req, res) {
   db.Suggest.find({}, function(err, suggest) {
     // console.log(suggest);
@@ -67,6 +94,9 @@ app.delete('/api/suggest/:id', function suggestIndex(req, res) {
 		res.status(200).send();
 	});
 });
+
+
+
 
 
 // app.listen(process.env.PORT || 3000)
