@@ -2,8 +2,7 @@ $(document).ready(function() {
   initListeners();
   console.log('app.js loaded!');
   $.get('/api/stations').success(function (stations) {
-    stations.forEach(function(station, index) {
-       
+    stations.forEach(function(station, index) { 
       renderStation(station, index);
     });  // forEach
   });  // $.get
@@ -13,14 +12,13 @@ $(document).ready(function() {
     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
     console.log(thisStationID);
     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
-      console.log(data);
-        
-    });
-
-    
+      console.log(data);        
+    });     
   });
-
 }); // $(document).ready
+
+// Listener for Delete 
+
 
 function initListeners () {
 
@@ -48,7 +46,8 @@ function initListeners () {
       comments.forEach(function(comment) {
           $("#comments").append("<p>User Name: " + comment.userName + "</p>");  
           $("#comments").append("<p>Comment Type: " + comment.commentType + "</p>");  
-          $("#comments").append("<p>Comment: " + comment.userComment + "</p><br><hr>");  
+          $("#comments").append("<p>Comment: " + comment.userComment + "</p><br>");  
+          $("#comments").append('<button type="button" class="btn btn-default" id="delete" data-dismiss="modal">' + "Delete" + '</button><hr>');
       });
     })
   })
@@ -105,4 +104,3 @@ function renderStation(station, index) {
   "          <!-- end one station -->";
   $('#stations').prepend(stationHtml);
  }
-
