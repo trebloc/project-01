@@ -43,6 +43,8 @@ app.get('/api/stations', function stationsIndex(req, res) {
 
 app.get('/api/stations/:stationId/comments', function (req, res) {
   db.Station.findOne({_id: req.params.stationId}, function(err, station) {
+    console.log('station: ', station)
+    console.log('comments: ', station.comments)
 		res.json(station.comments);
   });
 });
@@ -50,7 +52,7 @@ app.get('/api/stations/:stationId/comments', function (req, res) {
 // create comment embedded in stations
 app.post('/api/stations/:stationId/comments', function (req, res) {
  // set the value of the station id
- var stationId = req.params.stationId;
+ var stationId = req.body.stationId;
  console.log("Station ID is: " + stationId);
  
  // store new comment in memory with data from request body

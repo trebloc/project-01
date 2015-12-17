@@ -4,3 +4,11 @@
   background-repeat: no-repeat;
   color: #EEE;
 }
+/*#commentForm {
+	padding: 15px;
+}*/
+
+.input-group {
+	max-width: 550px;
+}
+

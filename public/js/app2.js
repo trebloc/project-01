@@ -44,51 +44,35 @@ $(document).ready(function() {
 function initListeners () {
 
 
-$('.modal').on('shown.bs.modal', function () {
-    var modal = $(this);
+  $('.modal').on('shown.bs.modal', function () {
     var modalId = $(this).attr('id');
-    console.log('modalId: ', modalId);
-    var whichModal = modal.attr('id')[5];
+    // console.log(modalId);
+    var whichModal = $(this).attr('id')[5];
     console.log(whichModal);
-
-    // below doesn't work because stations are PREpended into the DOM,
-    //   so eq(0) will return the first station in the DOM, and that
-    //   station links to modal4 (the last modal)
-    // var stationId = $('.row.station').eq(whichModal).attr('data-station-id');
-    //
-    // do this instead:
-
-    var $station = $('#stations').find("a[href='#modal" + whichModal + "']").closest(".row.station");
-    var stationId = $station.data('station-id');
-    console.log('stationId: ', stationId);
-    var stationName = $station.find(".station-name a").text();
-    console.log('stationName: ', stationName);
-    var latitude = $station.find(".station-latitude").text();
-    console.log('stationLatitude: ', latitude);
-    var longitude = $station.find(".station-longitude").text();
-    console.log('stationLongitude: ', longitude);    
-    var status = $station.find(".station-status").text();
-    console.log('stationStatus: ', status);
-    var city = $station.find(".station-city").text();
-    console.log('stationCity: ', city); 
-    var totalDocks = $station.find(".station-total-docks").text();
-    console.log('stationtotalDocks: ', totalDocks);       
+    var stationId = $('.row.station').eq(whichModal).attr('data-station-id');
+    //console.log(stationId);
+    var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(whichModal).text();
+    var latitude = $('#stations').find("span[class='station-latitude']").eq(whichModal).text();
+    var longitude = $('#stations').find("span[class='station-longitude']").eq(whichModal).text();
+    var status = $('#stations').find("span[class='station-status']").eq(whichModal).text();    
+    var city = $('#stations').find("span[class='station-city']").eq(whichModal).text(); 
+    var totalDocks = $('#stations').find("span[class='station-total-docks']").eq(whichModal).text();   
     $(this).find('span.station-name').text(stationName);
-    $(this).find('span.station-latitude').text(latitude);
-    $(this).find('span.station-longitude').text(longitude);
-    $(this).find('span.station-status').text(status);
-    $(this).find('span.station-city').text(city);
-    $(this).find('span.station-total-docks').text(totalDocks);
+    $(this).find('span.station-latitude').text(latitude); 
+    $(this).find('span.station-longitude').text(longitude); 
+    $(this).find('span.station-status').text(status);  
+    $(this).find('span.station-city').text(city);  
+    $(this).find('span.station-total-docks').text(totalDocks); 
     $(this).find('input#stationId').attr('value', stationId);
     $.get('api/stations/' + stationId + '/comments', function (comments) {
-      console.log('Comments: ', comments);
+      //console.log('Comments: ', comments);
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
-          modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");
-          modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>User Name: </strong> " + comment.userName + "</p>");
-          modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment Type: </strong>" + comment.commentType + "</p>");
-          modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment: </strong>" + comment.userComment + "</p><br>");
-          modal.find('[data-comment-id=' + comment._id + ']').append('<button type="button" class="btn btn-danger delete"  data-station-id="' + stationId + '"data-delcomment-id="' + comment._id + '" >Delete</button><hr></div>');
+          $("#comments").append('<div class="IDComment"  data-comment-id="'+comment._id+'">')
+          $('[data-comment-id=' + comment._id + ']').append("<p><strong>User Name:</strong> " + comment.userName + "</p>");  
+          $('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment Type:</strong> " + comment.commentType + "</p>");  
+          $('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment:</strong> " + comment.userComment + "</p><br>");  
+          $('[data-comment-id=' + comment._id + ']').append('<button type="button" class="btn btn-danger delete"  data-station-id="' + stationId + '"data-delcomment-id="' + comment._id + '" >Delete</button></div>');
       });
     });
   });
