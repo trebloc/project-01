@@ -44,7 +44,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="./">Home<span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="/suggest">Suggest A Station<span class="sr-only">(current)</span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -164,12 +164,11 @@
 
   <!-- one station -->
   <div class='row station' data-station-id='{{_id}}'>
-    <div class='col-md-10 col-md-offset-1'>
-      <div class='panel panel-default'>
-        <div class='panel-body'>
-          <!-- begin station internal row -->
-            <div class='row'>
-              <div class='col-md-9 col-xs-12'>
+    <div class='container'>
+      <div class='col-md-10 col-md-offset-1'>
+          <div class='panel-body'>
+            <!-- begin station internal row -->
+              <div class='row'>
                 <ul class='list-group'>
                   <li class='list-group-item'>
                     <h4 class='inline-header'>User Name:</h4>
@@ -201,16 +200,14 @@
                   </li>                      
                 </ul>
               </div>
-              <div class='panel-footer'>
+              <div>
                 <button class='btn btn-danger delete-station'>Delete Station</button>
               </div> 
             </div>
-          <!-- end of station internal row -->
-        </div>
-      </div>  
+          <!-- end of station internal row --> 
     </div>
   </div>
-                
+ </div>               
    <!-- end one station -->
 
 

@@ -121,10 +121,13 @@ function renderStation(station, index) {
   "              <div class='panel-body'>" +
   "              <!-- begin station internal row -->" +
   "                <div class='row'>" +
+  "                  <div class='container'>" + 
   "                  <div class='col-md-3 col-xs-12 thumbnail station-art'>" +
   "                     <iframe src=" + station.stationImage + " width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
   "                  </div>" +
-  "                  <div class='col-md-9 col-xs-12'>" +
+  "                  </div>" +  
+  "                  <div class='container'>" + 
+  "                  <div class='col-md-9 .col-lg-12'>" +
   "                    <ul class='list-group'>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Station Name:</h4>" +
@@ -151,6 +154,7 @@ function renderStation(station, index) {
   "                        <span class='station-total-docks'>" + station.totalDocks+ "</span>" +
   "                      </li>" +
   "                    </ul>" +
+  "                  </div>" +
   "                  </div>" +
   "                </div>" +
   "                <!-- end of station internal row -->" +
