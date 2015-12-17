@@ -68,6 +68,29 @@ app.post('/api/stations/:stationId/comments', function (req, res) {
  });
 });
 
+app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, res) {
+  var stationId = req.params.stationId;
+  console.log("stationId is: ", stationId);
+  var id = req.params.id;
+  console.log('deleting id:', req.params.id);
+
+  //TODO 1: find station in db
+  db.Station.findOne({_id: stationId}, function(err, station) {
+      // TODO 2: remove comment with commentID from station.comments array
+      var foundComment = station.comments.id(id);
+      foundComment.remove();  
+      // TODO 3: save station document
+      station.save(function (err, success) {
+        console.log ("removed comment");
+          // TODO 4; return inside save callback
+        res.json (success);
+      });
+
+  });
+});
+
+
+
 app.get('/api/suggest', function suggestIndex(req, res) {
   db.Suggest.find({}, function(err, suggest) {
     // console.log(suggest);

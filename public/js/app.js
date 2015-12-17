@@ -6,18 +6,39 @@ $(document).ready(function() {
       renderStation(station, index);
     });  // forEach
   });  // $.get
+
   $(".comment-form").on("submit", function(event){
     event.preventDefault();
     var comments = ($( this ).serialize());
+    var whichModal = $(this).attr('id');
+    console.log(whichModal);
     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
-    console.log(thisStationID);
+    console.log("THIS STATION ID: " , thisStationID);
     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
       console.log(data);        
     });     
   });
+
+
+  $('body').on('click', '.delete', function(e){
+    var commentDiv = $(this).parent();
+    var commentId = $(this).data('delcomment-id');
+    var stationId = $(this).data('station-id');
+    console.log("I want to delete comment with ID : " + commentId);
+    console.log("from StationID : " + $(this).data('station-id'));
+
+    // create ajax request to delete with the id attached to the button you just pressed
+    $.ajax({
+      method: 'DELETE',
+      url: ('/api/stations/' + stationId + '/comments/' + commentId),
+      success: function() {
+        console.log("Comment Deleted: " + commentId);
+        $(commentDiv).remove();
+      }
+    });
+  });
 }); // $(document).ready
 
-// Listener for Delete 
 
 
 function initListeners () {
@@ -26,14 +47,16 @@ function initListeners () {
   $('.modal').on('shown.bs.modal', function () {
     var modalId = $(this).attr('id');
     // console.log(modalId);
-    var stationId = $('.row.station').eq(0).attr('data-station-id');
-    console.log(stationId);
-    var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(0).text();
-    var latitude = $('#stations').find("span[class='station-latitude']").eq(0).text();
-    var longitude = $('#stations').find("span[class='station-longitude']").eq(0).text();
-    var status = $('#stations').find("span[class='station-status']").eq(0).text();    
-    var city = $('#stations').find("span[class='station-city']").eq(0).text(); 
-    var totalDocks = $('#stations').find("span[class='station-total-docks']").eq(0).text();   
+    var whichModal = $(this).attr('id')[5];
+    console.log(whichModal);
+    var stationId = $('.row.station').eq(whichModal).attr('data-station-id');
+    //console.log(stationId);
+    var stationName = $('#stations').find("a[href='#" + modalId + "']").eq(whichModal).text();
+    var latitude = $('#stations').find("span[class='station-latitude']").eq(whichModal).text();
+    var longitude = $('#stations').find("span[class='station-longitude']").eq(whichModal).text();
+    var status = $('#stations').find("span[class='station-status']").eq(whichModal).text();    
+    var city = $('#stations').find("span[class='station-city']").eq(whichModal).text(); 
+    var totalDocks = $('#stations').find("span[class='station-total-docks']").eq(whichModal).text();   
     $(this).find('span.station-name').text(stationName);
     $(this).find('span.station-latitude').text(latitude); 
     $(this).find('span.station-longitude').text(longitude); 
@@ -42,22 +65,37 @@ function initListeners () {
     $(this).find('span.station-total-docks').text(totalDocks); 
     $(this).find('input#stationId').attr('value', stationId);
     $.get('api/stations/' + stationId + '/comments', function (comments) {
-      console.log('Comments: ', comments);
+      //console.log('Comments: ', comments);
       comments.forEach(function(comment) {
-          $("#comments").append("<p>User Name: " + comment.userName + "</p>");  
-          $("#comments").append("<p>Comment Type: " + comment.commentType + "</p>");  
-          $("#comments").append("<p>Comment: " + comment.userComment + "</p><br>");  
-          $("#comments").append('<button type="button" class="btn btn-default" id="delete" data-dismiss="modal">' + "Delete" + '</button><hr>');
+        //console.log(" JC: ",comment._id);
+          $("#comments").append('<div class="IDComment"  data-comment-id="'+comment._id+'">')
+          $('[data-comment-id=' + comment._id + ']').append("<p>User Name: " + comment.userName + "</p>");  
+          $('[data-comment-id=' + comment._id + ']').append("<p>Comment Type: " + comment.commentType + "</p>");  
+          $('[data-comment-id=' + comment._id + ']').append("<p>Comment: " + comment.userComment + "</p><br>");  
+          $('[data-comment-id=' + comment._id + ']').append('<button type="button" class="btn btn-danger delete"  data-station-id="' + stationId + '"data-delcomment-id="' + comment._id + '" >Delete</button><hr></div>');
       });
-    })
-  })
+    });
+  });
 
 };
+
+
+
+
+
 // $('.row.station').attr('data','station-id')
+
+
+// Listener for Delete 
+// $('#comments').attr('data', '.delete-comment').on('click', '.delete', function(e){
+//   console.log("This Button works");
+//   event.preventDefault();
+// });  
+
 
 // this function takes a single station and renders it to the page
 function renderStation(station, index) {
-  console.log('rendering station:', station);
+  //console.log('rendering station:', station);
 
   var stationHtml =
   "        <!-- one station -->" +
