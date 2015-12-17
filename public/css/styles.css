@@ -1,12 +1,12 @@
 .jumbotron {
   background-image: url(/images/bikes.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   color: #EEE;
+  margin-bottom: 0px;
 }
-/*#commentForm {
-	padding: 15px;
-}*/
+
+.navbar-header {
+	margin-left: 50px;
+}
 
 .input-group {
 	max-width: 550px;

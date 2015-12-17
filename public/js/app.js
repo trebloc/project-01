@@ -122,7 +122,7 @@ function renderStation(station, index) {
   "              <!-- begin station internal row -->" +
   "                <div class='row'>" +
   "                  <div class='col-md-3 col-xs-12 thumbnail station-art'>" +
-  "                     <img src='" + "http://placehold.it/400x400'" +  " alt='station image'>" +
+  "                     <iframe src=" + station.stationImage + " width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
   "                  </div>" +
   "                  <div class='col-md-9 col-xs-12'>" +
   "                    <ul class='list-group'>" +

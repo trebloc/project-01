@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var Comment = require('./comments');
 
 var StationSchema = new Schema({
+  stationImage: String,		
   stationName: String,
   latitude: Number, // always be a positive 
   longitude: Number, // always be a negative 

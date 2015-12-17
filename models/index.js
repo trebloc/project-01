@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 mongoose.connect( process.env.MONGOLAB_URI ||
                       process.env.MONGOHQ_URL || 
-                     "mongodb://localhost/bikeshare" )
+                     "mongodb://localhost/" )
 var Comment = require('./comments');
 var Station = require('./station');
 var Suggest = require('./suggest');
