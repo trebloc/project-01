@@ -8,4 +8,4 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 [github link](https://github.com/trebloc/project-01)
 
 ![screenshot]
-(http://imgur.com/9qfrbso)
+(http://i.imgur.com/W3CMSYQ.png)
