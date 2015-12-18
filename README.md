@@ -34,8 +34,27 @@ GET	| api/new_station |	get all new stations
 * **Heroku** - Successfully Deployed my Web App on Heroku.
 * **Documentation** - Fully documented my Web App in the READ Me.
 
-
-
 ## CHALLENGE ADD-ONS
-
 * **Templating** Utilized Handlebar templating on the Suggest a Station Page.
+
+## Code Snippet - Handlebar Templating!
+  ```              
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>User Name:</h4>
+                      <span class='user-name'>{{userName}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Suggested Station:</h4>
+                      <span class='station-name'>{{suggestStation}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Latitude:</h4>
+                      <span class='station-latitude'>{{latitude}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Longitude:</h4>
+                      <span class='station-latitude'>{{longitude}}</span>
+                  </li>
+  ```                
+
+
