@@ -26,7 +26,7 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 
 *  ** User will be able to suggest a station and post by putting in lattitude, longitude, and why along with deleting it.
 
-### Mobile Responsive Rending
+### Mobile Responsive Rendering
 ![screenshot]
 (http://i.imgur.com/WFNOYlz.png)
 ![screenshot]
