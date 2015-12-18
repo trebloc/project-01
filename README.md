@@ -13,7 +13,7 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 * User clicks from the main page with information about the system and then station links to a modal for each station.
 
 ![screenshot]
-(http://i.imgur.com/ZWah1vx.png)
+(http://i.imgur.com/ZWah1vx.png?2)
 
 * Modal page will also contain user input in which they put down the Road Condition, Bike Lane on the Route, or Other.
 * Station Information will contain information about the Station, is the Dock in Service, Bikes Available, Number of Docks, Google Map information of Longitude and Latitude.
