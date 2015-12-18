@@ -11,6 +11,8 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 ## User Stories
 * ** An App for Bay Area BikeShare System for Users
 * ** User clicks from the main page with information about the system and then station links to a modal for each station.
+![screenshot]
+(http://i.imgur.com/ZWah1vx.png)
 * ** Modal page will also contain user input in which they put down the Road Condition, Bike Lane on the Route, or Other.
 * ** Station Information will contain information about the Station, is the Dock in Service, Bikes Available, Number of Docks, Google Map information of Longitude and Latitude.
 * ** User will be able to create a comment about an existing station.
@@ -18,8 +20,6 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 *  ** User can go into an existing comment and be able to edit the actual comment or delete it.
 *  ** User will be able to suggest a station and post by putting in lattitude, longitude, and why along with deleting it.
 
-![screenshot]
-(http://i.imgur.com/ZWah1vx.png)
 ![screenshot]
 (http://i.imgur.com/jip7wti.png)
 ![screenshot]
