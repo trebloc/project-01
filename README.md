@@ -18,12 +18,10 @@ Method | URL | Example
 --- | --- | --- 
 GET	| api/stations | read all the stations
 GET	| api/stations/:id | read a single station
-###Comments		
 POST | api/stations/:id/comments/ | create a new comment
 GET	| api/stations/:id/comments/ | read all comments
 PUT	| api/stations/:id/comments/ | update comments #5
 DELETE | api/stations/:id/comments/	| destroy comment #11
-###Station Suggestion		
 POST | api/new_station/:id | create a new station suggestion
 GET	| api/new_station |	get all new stations 
 
