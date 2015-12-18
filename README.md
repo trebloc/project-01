@@ -18,6 +18,15 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 *  ** User can go into an existing comment and be able to edit the actual comment or delete it.
 *  ** User will be able to suggest a station and post by putting in lattitude, longitude, and why along with deleting it.
 
+![screenshot]
+(http://i.imgur.com/ZWah1vx.png)
+![screenshot]
+(http://i.imgur.com/jip7wti.png)
+![screenshot]
+(http://i.imgur.com/WFNOYlz.png)
+![screenshot]
+(http://i.imgur.com/DQ7s9U2.png)
+
 ## Technologies Used in the Project:
 
 * **Express API** - Utilized Expressto have HTML and JSON API endpoints.
