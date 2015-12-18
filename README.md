@@ -56,5 +56,8 @@ GET	| api/new_station |	get all new stations
                       <span class='station-latitude'>{{longitude}}</span>
                   </li>
   ```                
-
+## Future Improvements
+* ** Improve the Web App with Google Maps API and to dynamically render Station Locations
+* ** Change the templating on the Index.html to include Handlebar Templating
+* ** Improve the Bootstrap and CSS Front-End.
 
