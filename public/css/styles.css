@@ -8,6 +8,11 @@
 	margin-left: 50px;
 }
 
+#image {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
 .input-group {
 	max-width: 550px;
 }

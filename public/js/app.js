@@ -117,14 +117,11 @@ function renderStation(station, index) {
   "        <!-- one station -->" +
   "        <div class='row station' data-station-id='" + station._id + "'>" +
   "          <div class='col-md-10 col-md-offset-1'>" +
-  "            <div class='panel panel-default'>" +
   "              <div class='panel-body'>" +
   "              <!-- begin station internal row -->" +
   "                <div class='row'>" +
-  "                  <div class='container'>" + 
-  "                  <div class='col-md-3 col-xs-12 thumbnail station-art'>" +
+  "                  <div class='container' id='image'>" + 
   "                     <iframe src=" + station.stationImage + " width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
-  "                  </div>" +
   "                  </div>" +  
   "                  <div class='container'>" + 
   "                  <div class='col-md-9 .col-lg-12'>" +
@@ -158,7 +155,6 @@ function renderStation(station, index) {
   "                  </div>" +
   "                </div>" +
   "                <!-- end of station internal row -->" +
-    "          </div>" +
   "          <!-- end one station -->";
   $('#stations').prepend(stationHtml);
  }
