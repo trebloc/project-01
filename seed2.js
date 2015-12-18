@@ -1,5 +1,5 @@
-// This file allows us to seed our application with data
-// simply run: `node seed.js` from the root of this project folder.
+// This file allows us to seed our application with suggested stations data
+// simply run: `node seed2.js` from the root of this project folder.
 
 var db = require("./models");
 
@@ -72,6 +72,5 @@ db.Suggest.remove({}, function(err, suggest){
     console.log("created", suggest.length, "suggest");
     process.exit();
   });
-
 });
 

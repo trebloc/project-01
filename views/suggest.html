@@ -14,41 +14,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- handlebars -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+    <!-- handlebars -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
-<!-- APPLICATION SCRIPTS -->
+    <!-- APPLICATION SCRIPTS -->
     <script src="js/suggest.js"></script>
-
   </head>
   <body>
-
     <div class="jumbotron" id="dock">
       <div class="container">
       </div>
     </div>
-<nav class="navbar navbar-default">
-  <div class="container-fluid" id="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" id="navbar">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>        
-      </button>
-        <a class="navbar-brand" href="./">Bay Area BikeShare</a>        
-    </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>        
+        </button>
+          <a class="navbar-brand" href="./">Bay Area BikeShare</a>        
+      </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="./">Home<span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="/suggest">Suggest A Station<span class="sr-only">(current)</span></a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="./">Home<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="/suggest">Suggest A Station<span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
     <section class="container">
       <div class="row">
@@ -57,85 +55,74 @@
         </div>
       </div>
 
-<!-- BEGIN FORM SAMPLE -->
+<!-- BEGIN FORM SAMPLE of Suggesting a new station -->
 
-    <section id='suggest-form' class="container">
-      <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-
-        <form class="form-horizontal">
+<section id='suggest-form' class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <form class="form-horizontal">
           <fieldset>
-
             <!-- Form Name -->
             <legend>Suggestion</legend>
-
             <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="name">User Name:</label>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">User Name:</label>
               <div class="col-md-4">
-              <input id="textinput" name="userName" type="text" placeholder="" class="form-control input-md" required="">
-
+                <input id="textinput" name="userName" type="text" placeholder="" class="form-control input-md" required="">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="station_suggestion">Station Suggestion:</label>
+                <label class="col-md-4 control-label" for="station_suggestion">Station Suggestion:</label>
               <div class="col-md-4">
-              <input id="textinput" name="suggestStation" type="text" placeholder="" class="form-control input-md">
-
+                <input id="textinput" name="suggestStation" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="latitude">Latitude</label>
+                <label class="col-md-4 control-label" for="latitude">Latitude</label>
               <div class="col-md-4">
-              <input id="textinput" name="latitude" type="text" class="form-control input-md">
-
+                <input id="textinput" name="latitude" type="text" class="form-control input-md">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="latitude">Longitude</label>
+                <label class="col-md-4 control-label" for="latitude">Longitude</label>
               <div class="col-md-4">
-              <input id="textinput" name="longitude" type="text" class="form-control input-md">
-
+                <input id="textinput" name="longitude" type="text" class="form-control input-md">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="city">City</label>
+                <label class="col-md-4 control-label" for="city">City</label>
               <div class="col-md-4">
-              <input id="textinput" name="city" type="text" class="form-control input-md">
-
+                <input id="textinput" name="city" type="text" class="form-control input-md">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="why">Why</label>
+                <label class="col-md-4 control-label" for="why">Why</label>
               <div class="col-md-4">
-              <input id="textinput" name="whyComment" type="text" class="form-control input-md">
-
+                <input id="textinput" name="whyComment" type="text" class="form-control input-md">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="date">Date</label>
+                <label class="col-md-4 control-label" for="date">Date</label>
               <div class="col-md-4">
-              <input id="textinput" name="date" type="text" class="form-control input-md">
-
+                <input id="textinput" name="date" type="text" class="form-control input-md">
               </div>
             </div>
-
 
             <!-- Button -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton">Save Station</label>
+                <label class="col-md-4 control-label" for="singlebutton">Save Station</label>
               <div class="col-md-4">
                 <button id="singleButton" name="singlebutton" class="btn btn-primary">Submit</button>
               </div>
@@ -143,22 +130,17 @@
           </fieldset>
         </form>
       </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-     <!--   END FORM SAMPLE -->
+<!--   END FORM SAMPLE -->
 
-      <!-- stations! -->
-      <div id='suggest'>
-      </div>
-    </section>
+<!-- Suggested Stations! -->
+<div id='suggest'>
+</div>
+  </section>
 
-
-
-
-
-
-<!-- handlebars template -->
+<!-- handlebars template to render-->
 <script id="station-template" type="text/x-handlebars-template">
 
   <!-- one station -->
@@ -213,5 +195,5 @@
 <footer>
   <p>&copy; 2015 Colbert Tse</p>
 </footer>
-  </body>
+</body>
 </html>

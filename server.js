@@ -25,22 +25,26 @@ var db = require('./models');
  * HTML Endpoints
  */
 
+// Render to the Main Page
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-	
+
+// Render to teh Suggestion Page	
 app.get('/suggest', function homepage (req, res) {
   res.sendFile(__dirname + '/views/suggest.html');
 });
 
 /* API Endpoint */
 
+// Read of all the Existing Stations
 app.get('/api/stations', function stationsIndex(req, res) {
   db.Station.find({}, function(err, stations) {
     res.json(stations);
   });
 });
 
+// Read of all the Comments
 app.get('/api/stations/:stationId/comments', function (req, res) {
   db.Station.findOne({_id: req.params.stationId}, function(err, station) {
     console.log('station: ', station)
@@ -70,6 +74,7 @@ app.post('/api/stations/:stationId/comments', function (req, res) {
  });
 });
 
+// Delete the Station Comments for the user
 app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, res) {
   var stationId = req.params.stationId;
   console.log("stationId is: ", stationId);
@@ -92,7 +97,7 @@ app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, r
 });
 
 
-
+// Read of the Suggestion Page of new Stations
 app.get('/api/suggest', function suggestIndex(req, res) {
   db.Suggest.find({}, function(err, suggest) {
     // console.log(suggest);
@@ -100,6 +105,7 @@ app.get('/api/suggest', function suggestIndex(req, res) {
   });
 });
 
+// Posting of the new Suggested Station
 app.post('/api/suggest', function suggestCreate(req, res) {
   console.log("Create New Data");
   console.log('body', req.body);
@@ -111,6 +117,7 @@ app.post('/api/suggest', function suggestCreate(req, res) {
 
 });
 
+// Delete of the Suggested New Station
 app.delete('/api/suggest/:id', function suggestIndex(req, res) {
 	console.log('deleting id:', req.params.id);
 	db.Suggest.remove({_id: req.params.id}, function(err, suggestion) {

@@ -1,4 +1,4 @@
-// This file allows us to seed our application with data
+// This file allows us to seed our application with the existing station data to the main page.
 // simply run: `node seed.js` from the root of this project folder.
 
 var db = require("./models");
