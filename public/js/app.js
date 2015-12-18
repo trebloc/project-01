@@ -7,6 +7,7 @@ $(document).ready(function() {
     });  // forEach
   });  // $.get
 
+// Comment Form for Adding a new Comment on an Existing Station
   $(".comment-form").on("submit", function(event){
     event.preventDefault();
     var comments = ($( this ).serialize());
@@ -19,7 +20,7 @@ $(document).ready(function() {
     });     
   });
 
-
+// Deleting Station Comment
   $('body').on('click', '.delete', function(e){
     var commentDiv = $(this).parent();
     var commentId = $(this).data('delcomment-id');
@@ -43,7 +44,7 @@ $(document).ready(function() {
 
 function initListeners () {
 
-
+// Modal Information to be rendered when clicking on a station
 $('.modal').on('shown.bs.modal', function () {
     var modal = $(this);
     var modalId = $(this).attr('id');

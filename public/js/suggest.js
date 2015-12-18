@@ -59,6 +59,8 @@
 //               date: "12/14/15"
 //             });
 
+//Client Side Ajax call for reading Stations for Suggestion Page
+
 $(document).on('ready', function() {
 	var searchUrl = "/api/suggest";
 	var results = $('#suggest');
@@ -77,6 +79,7 @@ $(document).on('ready', function() {
 		}
 	});
 
+// Submitting suggestion for Post
 	$('.form-horizontal').on('submit', function(e) {
 		console.log("It works!");
 		e.preventDefault();
@@ -97,7 +100,7 @@ $(document).on('ready', function() {
 
 	});	
 	  	
-
+// Suggestion Station Delte
 	$('#suggest').on('click', '.delete-station', function(e) {
 		console.log("It Works!");
 		var id = $(this).parents('.station').data('station-id');
