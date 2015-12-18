@@ -46,8 +46,8 @@ POST | api/stations/:id/comments/ | create a new comment
 GET	| api/stations/:id/comments/ | read all comments
 PUT	| api/stations/:id/comments/ | update comments #5
 DELETE | api/stations/:id/comments/	| destroy comment #11
-POST | api/new_station/:id | create a new station suggestion
-GET	| api/new_station |	get all new stations 
+POST | /api/suggest/:id | create a new station suggestion
+GET	| api/suggest |	get all new station suggestions 
 
 * **RESTful Routes** - Used CRD for my project in the comment model, R for station model, and RD for the suggestion model.
 * **AJAX** - Utilized AJAX to fetch JSON data on the backend of things.
@@ -66,18 +66,6 @@ GET	| api/new_station |	get all new stations
                   <li class='list-group-item'>
                     <h4 class='inline-header'>User Name:</h4>
                       <span class='user-name'>{{userName}}</span>
-                  </li>
-                  <li class='list-group-item'>
-                    <h4 class='inline-header'>Suggested Station:</h4>
-                      <span class='station-name'>{{suggestStation}}</span>
-                  </li>
-                  <li class='list-group-item'>
-                    <h4 class='inline-header'>Latitude:</h4>
-                      <span class='station-latitude'>{{latitude}}</span>
-                  </li>
-                  <li class='list-group-item'>
-                    <h4 class='inline-header'>Longitude:</h4>
-                      <span class='station-latitude'>{{longitude}}</span>
                   </li>
   ```                
 ## Future Improvements
