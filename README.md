@@ -28,7 +28,7 @@ First project utilizing a Full-Stack based around getting seeded data from Bay A
 
 ### Mobile Responsive Rendering
 ![screenshot]
-(http://i.imgur.com/WFNOYlz.png?2)
+(http://i.imgur.com/WFNOYlz.png?3)
 ![screenshot]
 (http://i.imgur.com/DQ7s9U2.png?2)
 
