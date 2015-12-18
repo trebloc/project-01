@@ -1,7 +1,19 @@
 .jumbotron {
   background-image: url(/images/bikes.jpg);
+  background-size: cover;   
   color: #EEE;
   margin-bottom: 0px;
+  background-repeat: no-repeat;
+  height: 250px;
+}
+
+#dock {
+  background-image: url(/images/dock.jpg);
+  background-size: cover;   
+  color: #EEE;
+  margin-bottom: 0px;
+  background-repeat: no-repeat;
+  height: 250px;	
 }
 
 .navbar-header {
@@ -17,3 +29,36 @@
 	max-width: 550px;
 }
 
+.comment {
+	width: 50%;
+}
+
+.modal-footer {
+	text-align: left;
+	width:50%;
+}
+
+.pull-down {
+	bottom: 6px;
+}
+
+#navbar {
+	padding-left: 65px;
+}
+
+.navbar-brand {
+    font-weight: bold!important;
+    color: black!important;
+    font-size: 20px;
+}
+
+.navbar-nav{
+	font-size: 18px;
+}
+
+footer {
+	background-color: black;
+	height: 50px;
+	color: white;
+	padding-left: 65px;
+}
