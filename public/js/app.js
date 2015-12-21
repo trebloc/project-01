@@ -1,4 +1,4 @@
-$(document).ready(function() {
+  $(document).ready(function() {
   initListeners();
   console.log('app.js loaded!');
   $.get('/api/stations').success(function (stations) {
@@ -81,7 +81,7 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).find('span.station-city').text(city);
     $(this).find('span.station-total-docks').text(totalDocks);
     $(this).find('input#stationId').attr('value', stationId);
-    $.get('api/stations/' + stationId + '/comments', function (comments) {
+    $.get('/api/stations/' + stationId + '/comments', function (comments) {
       console.log('Comments: ', comments);
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
