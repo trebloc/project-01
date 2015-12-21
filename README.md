@@ -48,6 +48,7 @@ PUT	| api/stations/:id/comments/ | update comments #5
 DELETE | api/stations/:id/comments/	| destroy comment #11
 POST | /api/suggest/:id | create a new station suggestion
 GET	| api/suggest |	get all new station suggestions 
+DELETE	| api/suggest |	get all new station suggestions 
 
 * RESTful Routes - Used CRD for my project in the comment model, R for station model, and RD for the suggestion model.
 * AJAX - Utilized AJAX to fetch JSON data on the backend of things.
