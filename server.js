@@ -30,7 +30,7 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// Render to teh Suggestion Page	
+// Render to teh Suggestion Page
 app.get('/suggest', function homepage (req, res) {
   res.sendFile(__dirname + '/views/suggest.html');
 });
@@ -47,8 +47,8 @@ app.get('/api/stations', function stationsIndex(req, res) {
 // Read of all the Comments
 app.get('/api/stations/:stationId/comments', function (req, res) {
   db.Station.findOne({_id: req.params.stationId}, function(err, station) {
-    console.log('station: ', station)
-    console.log('comments: ', station.comments)
+    console.log('station: ', station);
+    console.log('comments: ', station.comments);
 		res.json(station.comments);
   });
 });
@@ -58,11 +58,11 @@ app.post('/api/stations/:stationId/comments', function (req, res) {
  // set the value of the station id
  var stationId = req.body.stationId;
  console.log("Station ID is: " + stationId);
- 
+
  // store new comment in memory with data from request body
  var newComment = new db.Comment(req.body);
  // req.body.comment is going to be form data a user filled in for a comment
- console.log("User input the comment: " , newComment)
+ console.log("User input the comment: " , newComment);
 
  // find station in db by id and add new comment
  db.Station.findOne({_id: stationId}, function (err, foundStation) {
@@ -85,11 +85,11 @@ app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, r
   db.Station.findOne({_id: stationId}, function(err, station) {
       // TODO 2: remove comment with commentID from station.comments array
       var foundComment = station.comments.id(id);
-      foundComment.remove();  
+      foundComment.remove();
       // TODO 3: save station document
       station.save(function (err, success) {
         console.log ("removed comment");
-          // TODO 4; return inside save callback
+        // TODO 4; return inside save callback
         res.json (success);
       });
 

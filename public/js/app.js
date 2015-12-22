@@ -2,7 +2,7 @@
   initListeners();
   console.log('app.js loaded!');
   $.get('/api/stations').success(function (stations) {
-    stations.forEach(function(station, index) { 
+    stations.forEach(function(station, index) {
       renderStation(station, index);
     });  // forEach
   });  // $.get
@@ -16,8 +16,12 @@
     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
     console.log("THIS STATION ID: " , thisStationID);
     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
-      console.log(data);        
-    });     
+      console.log(data);
+      // render data on modal?
+
+      // clear form
+      $('.comment-form').trigger('reset');
+    });
   });
 
 // Deleting Station Comment
@@ -41,12 +45,12 @@
 }); // $(document).ready
 
 
-
+// this seems like an odd name for this function
 function initListeners () {
 
 // Modal Information to be rendered when clicking on a station
 $('.modal').on('shown.bs.modal', function () {
-    var modal = $(this);
+    var modal = $(this);  // this should really be named $modal since it's a jquery dom element
     var modalId = $(this).attr('id');
     console.log('modalId: ', modalId);
     var whichModal = modal.attr('id')[5];
@@ -67,13 +71,13 @@ $('.modal').on('shown.bs.modal', function () {
     var latitude = $station.find(".station-latitude").text();
     console.log('stationLatitude: ', latitude);
     var longitude = $station.find(".station-longitude").text();
-    console.log('stationLongitude: ', longitude);    
+    console.log('stationLongitude: ', longitude);
     var status = $station.find(".station-status").text();
     console.log('stationStatus: ', status);
     var city = $station.find(".station-city").text();
-    console.log('stationCity: ', city); 
+    console.log('stationCity: ', city);
     var totalDocks = $station.find(".station-total-docks").text();
-    console.log('stationtotalDocks: ', totalDocks);       
+    console.log('stationtotalDocks: ', totalDocks);
     $(this).find('span.station-name').text(stationName);
     $(this).find('span.station-latitude').text(latitude);
     $(this).find('span.station-longitude').text(longitude);
@@ -83,9 +87,11 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).find('input#stationId').attr('value', stationId);
     $.get('/api/stations/' + stationId + '/comments', function (comments) {
       console.log('Comments: ', comments);
+      // first clear all present comments
+      modal.find("#comments").html("");
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
-          modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");
+          modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");    // do you close this?
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>User Name: </strong> " + comment.userName + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment Type: </strong>" + comment.commentType + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment: </strong>" + comment.userComment + "</p><br>");
@@ -94,7 +100,7 @@ $('.modal').on('shown.bs.modal', function () {
     });
   });
 
-};
+}
 
 
 
@@ -103,11 +109,11 @@ $('.modal').on('shown.bs.modal', function () {
 // $('.row.station').attr('data','station-id')
 
 
-// Listener for Delete 
+// Listener for Delete
 // $('#comments').attr('data', '.delete-comment').on('click', '.delete', function(e){
 //   console.log("This Button works");
 //   event.preventDefault();
-// });  
+// });
 
 
 // this function takes a single station and renders it to the page
@@ -121,10 +127,10 @@ function renderStation(station, index) {
   "              <div class='panel-body'>" +
   "              <!-- begin station internal row -->" +
   "                <div class='row'>" +
-  "                  <div class='container' id='image'>" + 
+  "                  <div class='container' id='image'>" +
   "                     <iframe src=" + station.stationImage + " width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
-  "                  </div>" +  
-  "                  <div class='container'>" + 
+  "                  </div>" +
+  "                  <div class='container'>" +
   "                  <div class='col-md-9 .col-lg-12'>" +
   "                    <ul class='list-group'>" +
   "                      <li class='list-group-item'>" +

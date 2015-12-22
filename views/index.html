@@ -1,109 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bay Area Bikeshare</title>
+  <title>Bay Area Bikeshare</title>
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- VENDOR SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <!-- handlebars -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="js/app.js"></script>
+  <!-- APPLICATION SCRIPTS -->
+  <script src="js/app.js"></script>
 
-  </head>
-  <body>
-<!-- Modal 0 of station here -->
-<div class="modal fade" id="modal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->  
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
-      </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item id="station_ID'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
+</head>
+<body>
+  <!-- Modal 0 of station here -->
+  <div class="modal fade" id="modal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <!-- Station Information -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">Station Information</h3>
+        </div>
+        <div class="modal-body">
+          <ul class='list-group'>
+  <!--           <li class='list-group-item id="station_ID'>
+              <h4 class='inline-header'>Station Name:</h4>
+                <span class='station-id'>station.id</span>
+            </li> -->
+            <li class='list-group-item'>
+              <h4 class='inline-header'>Station Name:</h4>
               <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
+            </li>
+            <li class='list-group-item'>
+              <h4 class='inline-header'>Latitude:</h4>
               <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
+            </li>
+            <li class='list-group-item'>
+              <h4 class='inline-header'>Longitude:</h4>
               <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
+            </li>
+            <li class='list-group-item'>
+              <h4 class='inline-header'>Status:</h4>
               <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
+            </li>
+            <li class='list-group-item'>
+              <h4 class='inline-header'>City:</h4>
               <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
+            </li>
+            <li class='list-group-item'>
+              <h4 class='inline-header'>Total Docks:</h4>
               <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- Comment Form -->
+        <form class="comment-form">
+          <div class="container" id ="commentForm">
+            <div class="form-group comment">
+              <h3>Enter Comments</h3>
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" name="userName" placeholder="username">
+            </div>
+            <div class="input-group pull-down">
+                <select class="form-control" name="commentType">
+                  <option value="Bike Lane">Bike Lane</option>
+                  <option value ="Bike Shop">Bike Shop</option>
+                  <option value="Other">Other</option><br>
+                </select>
+            </div>
+            <div class="form-group comment">
+              <label for="comment">Comment:</label>
+              <input type="text" class="form-control" name="userComment" placeholder="Comment">
+            </div>
+            <div>
+              <input type="hidden" id="stationId" name="stationId" value="">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+        </form>
+        <div class="container">
+          <h2>Comments</h2>
+          <div id="comments">
+          </div> 
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
-<!-- Comment Form -->      
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
     </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+  </div>
 
 <!-- Modal 1 of station here -->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-<!-- Station Information -->  
+<!-- Station Information -->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -141,9 +141,9 @@
           </li>
         </ul>
       </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
+<!-- Comment Form -->
+<form class="comment-form">
+  <div class="container" id ="commentForm">
     <div class="form-group comment">
       <h3>Enter Comments</h3>
         <label for="username">Username:</label>
@@ -155,21 +155,21 @@
           <option value ="Bike Shop">Bike Shop</option>
           <option value="Other">Other</option><br>
         </select>
-    </div>  
+    </div>
     <div class="form-group comment">
       <label for="comment">Comment:</label>
       <input type="text" class="form-control" name="userComment" placeholder="Comment">
     </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
+    <div>
+      <input type="hidden" id="stationId" name="stationId" value="">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
-  </div>  
+  </div>
 </form>
 <div class="container">
   <h2>Comments</h2>
 <div id="comments">
-</div> 
+</div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
@@ -181,7 +181,7 @@
 <!-- Modal 2 of station here -->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-<!-- Station Information -->  
+<!-- Station Information -->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -219,9 +219,9 @@
           </li>
         </ul>
       </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
+<!-- Comment Form -->
+<form class="comment-form">
+  <div class="container" id ="commentForm">
     <div class="form-group comment">
       <h3>Enter Comments</h3>
         <label for="username">Username:</label>
@@ -233,21 +233,21 @@
           <option value ="Bike Shop">Bike Shop</option>
           <option value="Other">Other</option><br>
         </select>
-    </div>  
+    </div>
     <div class="form-group comment">
       <label for="comment">Comment:</label>
       <input type="text" class="form-control" name="userComment" placeholder="Comment">
     </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
+    <div>
+      <input type="hidden" id="stationId" name="stationId" value="">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
-  </div>  
+  </div>
 </form>
 <div class="container">
   <h2>Comments</h2>
 <div id="comments">
-</div> 
+</div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
@@ -259,7 +259,7 @@
 <!-- Modal 3 of station here -->
 <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-<!-- Station Information -->      
+<!-- Station Information -->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -297,9 +297,9 @@
           </li>
         </ul>
       </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
+<!-- Comment Form -->
+<form class="comment-form">
+  <div class="container" id ="commentForm">
     <div class="form-group comment">
       <h3>Enter Comments</h3>
         <label for="username">Username:</label>
@@ -311,21 +311,21 @@
           <option value ="Bike Shop">Bike Shop</option>
           <option value="Other">Other</option><br>
         </select>
-    </div>  
+    </div>
     <div class="form-group comment">
       <label for="comment">Comment:</label>
       <input type="text" class="form-control" name="userComment" placeholder="Comment">
     </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
+    <div>
+      <input type="hidden" id="stationId" name="stationId" value="">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
-  </div>  
+  </div>
 </form>
 <div class="container">
   <h2>Comments</h2>
 <div id="comments">
-</div> 
+</div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
@@ -337,7 +337,7 @@
 <!-- Modal 4 of station here -->
 <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-<!-- Station Information -->     
+<!-- Station Information -->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -375,9 +375,9 @@
           </li>
         </ul>
       </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
+<!-- Comment Form -->
+<form class="comment-form">
+  <div class="container" id ="commentForm">
     <div class="form-group comment">
       <h3>Enter Comments</h3>
         <label for="username">Username:</label>
@@ -389,21 +389,21 @@
           <option value ="Bike Shop">Bike Shop</option>
           <option value="Other">Other</option><br>
         </select>
-    </div>  
+    </div>
     <div class="form-group comment">
       <label for="comment">Comment:</label>
       <input type="text" class="form-control" name="userComment" placeholder="Comment">
     </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
+    <div>
+      <input type="hidden" id="stationId" name="stationId" value="">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
-  </div>  
+  </div>
 </form>
 <div class="container">
   <h2>Comments</h2>
 <div id="comments">
-</div> 
+</div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
@@ -427,7 +427,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="#">Bay Area BikeShare</a>      
+        <a class="navbar-brand" href="#">Bay Area BikeShare</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -447,7 +447,7 @@
       </div>
       <!-- stations! -->
       <div id='stations'>
-      </div>          
+      </div>
           <!-- end one station -->
       </div>
     </section>
