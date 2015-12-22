@@ -45,7 +45,7 @@
 }); // $(document).ready
 
 
-
+// this seems like an odd name for this function
 function initListeners () {
 
 // Modal Information to be rendered when clicking on a station
@@ -89,7 +89,7 @@ $('.modal').on('shown.bs.modal', function () {
       console.log('Comments: ', comments);
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
-          modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");
+          modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");    // do you close this?
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>User Name: </strong> " + comment.userName + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment Type: </strong>" + comment.commentType + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment: </strong>" + comment.userComment + "</p><br>");
