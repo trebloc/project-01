@@ -50,7 +50,7 @@ function initListeners () {
 
 // Modal Information to be rendered when clicking on a station
 $('.modal').on('shown.bs.modal', function () {
-    var modal = $(this);
+    var modal = $(this);  // this should really be named $modal since it's a jquery dom element
     var modalId = $(this).attr('id');
     console.log('modalId: ', modalId);
     var whichModal = modal.attr('id')[5];
@@ -87,6 +87,8 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).find('input#stationId').attr('value', stationId);
     $.get('/api/stations/' + stationId + '/comments', function (comments) {
       console.log('Comments: ', comments);
+      // first clear all present comments
+      modal.find("#comments").html("");
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
           modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");    // do you close this?
@@ -98,7 +100,7 @@ $('.modal').on('shown.bs.modal', function () {
     });
   });
 
-};
+}
 
 
 
