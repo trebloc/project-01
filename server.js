@@ -62,7 +62,7 @@ app.post('/api/stations/:stationId/comments', function (req, res) {
  // store new comment in memory with data from request body
  var newComment = new db.Comment(req.body);
  // req.body.comment is going to be form data a user filled in for a comment
- console.log("User input the comment: " , newComment)
+ console.log("User input the comment: " , newComment);
 
  // find station in db by id and add new comment
  db.Station.findOne({_id: stationId}, function (err, foundStation) {
@@ -89,7 +89,7 @@ app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, r
       // TODO 3: save station document
       station.save(function (err, success) {
         console.log ("removed comment");
-          // TODO 4; return inside save callback
+        // TODO 4; return inside save callback
         res.json (success);
       });
 
@@ -114,7 +114,6 @@ app.post('/api/suggest', function suggestCreate(req, res) {
     console.log(suggest);
     res.json(suggest);
   });
-
 });
 
 // Delete of the Suggested New Station
@@ -126,10 +125,6 @@ app.delete('/api/suggest/:id', function suggestIndex(req, res) {
 		res.status(200).send();
 	});
 });
-
-
-
-
 
 // app.listen(process.env.PORT || 3000)
 app.listen(process.env.PORT || 3000, function () {
