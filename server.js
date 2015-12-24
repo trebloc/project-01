@@ -30,7 +30,7 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// Render to teh Suggestion Page	
+// Render to the Suggestion Page	
 app.get('/suggest', function homepage (req, res) {
   res.sendFile(__dirname + '/views/suggest.html');
 });
@@ -47,8 +47,8 @@ app.get('/api/stations', function stationsIndex(req, res) {
 // Read of all the Comments
 app.get('/api/stations/:stationId/comments', function (req, res) {
   db.Station.findOne({_id: req.params.stationId}, function(err, station) {
-    console.log('station: ', station)
-    console.log('comments: ', station.comments)
+    console.log('station: ', station);
+    console.log('comments: ', station.comments);
 		res.json(station.comments);
   });
 });
