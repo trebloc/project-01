@@ -16,8 +16,12 @@
     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
     console.log("THIS STATION ID: " , thisStationID);
     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
-      console.log(data);        
-    });     
+      console.log(data);
+      // render data on modal?
+
+      // clear form
+    $('.comment-form').trigger('reset');
+     });
   });
 
 // Deleting Station Comment
