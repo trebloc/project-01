@@ -19,442 +19,93 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="js/app.js"></script>
-
   </head>
   <body>
-<!-- Modal 0 of station here -->
-<div class="modal fade" id="modal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->  
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
+    <div class="jumbotron">
+      <div class="container">
       </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item id="station_ID'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
-              <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
-              <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
-              <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
-              <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
-              <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
-      </div>
-<!-- Comment Form -->      
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
     </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modal 1 of station here -->
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->  
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
-      </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
-              <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
-              <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
-              <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
-              <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
-              <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
-      </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
-    </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modal 2 of station here -->
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->  
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
-      </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
-              <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
-              <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
-              <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
-              <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
-              <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
-      </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
-    </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modal 3 of station here -->
-<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->      
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
-      </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
-              <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
-              <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
-              <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
-              <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
-              <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
-      </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
-    </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modal 4 of station here -->
-<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-<!-- Station Information -->     
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Station Information</h3>
-      </div>
-      <div class="modal-body">
-        <ul class='list-group'>
-<!--           <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-id'>station.id</span>
-          </li> -->
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Station Name:</h4>
-              <span class='station-name'></span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Latitude:</h4>
-              <span class='station-latitude'>" + station.latitude + "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Longitude:</h4>
-              <span class='station-longitude'>" + station.longitude+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Status:</h4>
-              <span class='station-status'>" + station.status+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>City:</h4>
-              <span class='station-city'>" + station.city+ "</span>
-          </li>
-          <li class='list-group-item'>
-            <h4 class='inline-header'>Total Docks:</h4>
-              <span class='station-total-docks'>" + station.totalDocks+ "</span>
-          </li>
-        </ul>
-      </div>
-<!-- Comment Form -->        
-<form class="comment-form"> 
-  <div class="container" id ="commentForm">  
-    <div class="form-group comment">
-      <h3>Enter Comments</h3>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" name="userName" placeholder="username">
-    </div>
-    <div class="input-group pull-down">
-        <select class="form-control" name="commentType">
-          <option value="Bike Lane">Bike Lane</option>
-          <option value ="Bike Shop">Bike Shop</option>
-          <option value="Other">Other</option><br>
-        </select>
-    </div>  
-    <div class="form-group comment">
-      <label for="comment">Comment:</label>
-      <input type="text" class="form-control" name="userComment" placeholder="Comment">
-    </div>
-    <div>  
-      <input type="hidden" id="stationId" name="stationId" value="">     
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>  
-</form>
-<div class="container">
-  <h2>Comments</h2>
-<div id="comments">
-</div> 
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Title and Header Image -->
-<div class="jumbotron">
-  <div class="container">
-  </div>
-</div>
-<nav class="navbar navbar-default">
-  <div class="container-fluid" id="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" id="navbar">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a class="navbar-brand" href="#">Bay Area BikeShare</a>      
-    </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>        
+        </button>
+          <a class="navbar-brand" href="./">Bay Area BikeShare</a>        
+      </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="/suggestions">Suggest A Station<span class="sr-only">(current)</span></a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<section class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h2>Stations</h2>
-        </div>
-      </div>
-      <!-- stations! -->
-      <div id='stations'>
-      </div>          
-          <!-- end one station -->
-      </div>
-    </section>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="./">Home<span class="sr-only">(current)</span></a></li>
+          <li><a href="/suggest">Suggest A Station<span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-<!-- Footer -->
+<!-- Current Stations! -->
+<div id='stations'>
+</div>
+  </section>
+
+<!-- handlebars template to render-->
+<script id="current-station-template" type="text/x-handlebars-template">
+
+  <!-- one station -->
+  <div class='row station' data-station-id='{{_id}}'>
+    <div class='container'>
+      <div class='col-md-10 col-md-offset-1'>
+          <div class='panel-body'>
+            <!-- begin station internal row -->
+              <div class='row'>
+                <ul class='list-group'>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Map:</h4>
+                      <span class='map'><div class='container' id='image'>" + 
+  "                     <iframe src="{{stationImage}}" width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
+  "                  </div></span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Station:</h4>
+                      <span class='station-name'>{{stationName}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Latitude:</h4>
+                      <span class='station-latitude'>{{latitude}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Longitude:</h4>
+                      <span class='station-longitude'>{{longitude}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Status:</h4>
+                      <span class='station-status'>{{status}}</span>
+                  </li>                  
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>City:</h4>
+                      <span class='station-city'>{{city}}</span>
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Total Docks:</h4>
+                      <span class='station-docks'>{{totalDocks}}</span>
+                  </li>                   
+                </ul>
+              </div>
+            </div>
+          <!-- end of station internal row --> 
+    </div>
+  </div>
+ </div> 
+
+   <!-- end one station -->
+</script>
 <footer>
   <p>&copy; 2015 Colbert Tse</p>
 </footer>
-  </body>
+</body>
 </html>
