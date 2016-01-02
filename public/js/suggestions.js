@@ -100,7 +100,7 @@ $(document).on('ready', function() {
 
 	});	
 	  	
-// Suggestion Station Delte
+// Suggestion Station Delete
 	$('#suggestions').on('click', '.delete-station', function(e) {
 		console.log("It Works!");
 		var id = $(this).parents('.station').data('station-id');
