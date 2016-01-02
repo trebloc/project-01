@@ -30,9 +30,9 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// Render to the Suggestion Page	
-app.get('/suggest', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/suggest.html');
+// Render to the Suggestion Page  
+app.get('/suggestions', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/suggestions.html');
 });
 
 /* API Endpoint */
@@ -49,7 +49,7 @@ app.get('/api/stations/:stationId/comments', function (req, res) {
   db.Station.findOne({_id: req.params.stationId}, function(err, station) {
     console.log('station: ', station);
     console.log('comments: ', station.comments);
-		res.json(station.comments);
+    res.json(station.comments);
   });
 });
 
@@ -98,7 +98,7 @@ app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, r
 
 
 // Read of the Suggestion Page of new Stations
-app.get('/api/suggest', function suggestIndex(req, res) {
+app.get('/api/suggestions', function suggestIndex(req, res) {
   db.Suggest.find({}, function(err, suggest) {
     // console.log(suggest);
     res.json(suggest);
@@ -106,7 +106,7 @@ app.get('/api/suggest', function suggestIndex(req, res) {
 });
 
 // Posting of the new Suggested Station
-app.post('/api/suggest', function suggestCreate(req, res) {
+app.post('/api/suggestions', function suggestCreate(req, res) {
   console.log("Create New Data");
   console.log('body', req.body);
   db.Suggest.create(req.body, function(err, suggest) {
@@ -117,13 +117,13 @@ app.post('/api/suggest', function suggestCreate(req, res) {
 });
 
 // Delete of the Suggested New Station
-app.delete('/api/suggest/:id', function suggestIndex(req, res) {
-	console.log('deleting id:', req.params.id);
-	db.Suggest.remove({_id: req.params.id}, function(err, suggestion) {
-		if (err) {console.log('error', err); }
-		console.log('suggestion deleted: ' , req.params.id , suggestion.suggestStation);
-		res.status(200).send();
-	});
+app.delete('/api/suggestions/:id', function suggestIndex(req, res) {
+  console.log('deleting id:', req.params.id);
+  db.Suggest.remove({_id: req.params.id}, function(err, suggestion) {
+    if (err) {console.log('error', err); }
+    console.log('suggestion deleted: ' , req.params.id , suggestion.suggestStation);
+    res.status(200).send();
+  });
 });
 
 // app.listen(process.env.PORT || 3000)

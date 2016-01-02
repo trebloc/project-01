@@ -6,7 +6,7 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                      "mongodb://localhost/" )
 var Comment = require('./comments');
 var Station = require('./station');
-var Suggest = require('./suggest');
+var Suggest = require('./suggestions');
 
 module.exports.Comment = Comment;
 module.exports.Station = Station;

@@ -62,8 +62,8 @@
 //Client Side Ajax call for reading Stations for Suggestion Page
 
 $(document).on('ready', function() {
-	var searchUrl = "/api/suggest";
-	var results = $('#suggest');
+	var searchUrl = "/api/suggestions";
+	var results = $('#suggestions');
 	var source = $('#station-template').html();
 	// console.log(source);
 	var template = Handlebars.compile(source);
@@ -74,7 +74,7 @@ $(document).on('ready', function() {
 			data.forEach(function(suggestion) {
 				// console.log("this is the suggest id", suggestion._id)
 				var html = template(suggestion);
-				$('#suggest').append(html);
+				$('#suggestions').append(html);
 			});
 		}
 	});
@@ -94,21 +94,21 @@ $(document).on('ready', function() {
 	    	success: function (data) {
 	    		console.log(data);
 				var html = template(data);
-				$('#suggest').append(html);
+				$('#suggestions').append(html);
 		    }
 	    });
 
 	});	
 	  	
 // Suggestion Station Delte
-	$('#suggest').on('click', '.delete-station', function(e) {
+	$('#suggestions').on('click', '.delete-station', function(e) {
 		console.log("It Works!");
 		var id = $(this).parents('.station').data('station-id');
 		console.log("this is the suggest id", id);
 
 		$.ajax({
 			method: 'DELETE',
-			url: ('/api/suggest/' + id),
+			url: ('/api/suggestions/' + id),
 			success: function() {
 				console.log("Suggestion Deleted!");
 				$('[data-station-id=' + id + ']').remove();
