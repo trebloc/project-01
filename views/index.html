@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="./">Home<span class="sr-only">(current)</span></a></li>
-          <li><a href="/suggest">Suggest A Station<span class="sr-only">(current)</span></a></li>
+          <li><a href="/suggestions">Suggest A Station<span class="sr-only">(current)</span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -66,9 +66,7 @@
                 <ul class='list-group'>
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Map:</h4>
-                      <span class='map'><div class='container' id='image'>" + 
-  "                     <iframe src="{{stationImage}}" width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
-  "                  </div></span>
+                      <span class='map'><div class='container' id='image'><iframe src="{{stationImage}}" width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe></div></span>
                   </li>
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Station:</h4>
@@ -93,17 +91,51 @@
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Total Docks:</h4>
                       <span class='station-docks'>{{totalDocks}}</span>
+                  </li>   
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Comments:</h4>
+                      <span class='station-comments'>{{longitude}}</span>
                   </li>                   
-                </ul>
-              </div>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Comments Submission:</h4>
+                      <!-- Comment Form -->      
+                      <form class="comment-form" id ="commentForm"> 
+                      <div class="container" >  
+                         <div class="form-group comment">
+                          <label for="username">Username:</label>
+                            <input type="text" class="form-control" name="userName" placeholder="username">
+                        </div>
+                      <div class="input-group pull-down">
+                        <select class="form-control" name="commentType">
+                          <option value="Bike Lane">Bike Lane</option>
+                          <option value ="Bike Shop">Bike Shop</option>
+                          <option value="Other">Other</option><br>
+                        </select>
+                      </div>  
+                      <div class="form-group comment">
+                        <label for="comment">Comment:</label>
+                          <input type="text" class="form-control" name="userComment" placeholder="Comment">
+                      </div>
+                      <div>  
+                        <input type="hidden" id="stationId" name="stationId" value="">     
+                        <button id="saveComment" type="button" class="btn btn-primary">Save changes</button>
+                      </div>  
+                    </form>   
+                </div>
             </div>
           <!-- end of station internal row --> 
     </div>
   </div>
  </div> 
-
-   <!-- end one station -->
+<!-- end one station -->
 </script>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
 <footer>
   <p>&copy; 2015 Colbert Tse</p>
 </footer>

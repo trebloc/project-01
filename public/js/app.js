@@ -1,46 +1,63 @@
 $(document).on('ready', function() {
-  var searchUrl = "/api/stations";
+  var stationUrl = "/api/stations";
+  var postStationUrl = "/api/stations/:stationId/comments";
   var results = $('#stations');
   var source = $('#current-station-template').html();
   // console.log(source);
   var template = Handlebars.compile(source);
   $.ajax({
     method: 'GET',
-    url: searchUrl,
+    url: stationUrl,
     success: function (data) {
       data.forEach(function(stations) {
-        // console.log("this is the suggest id", suggestion._id)
+        // console.log("this is the station id", station._id)
         var html = template(stations);
         $('#stations').append(html);
       });
     }
   });
+
+  // Submitting Comment for Post
+  $('#saveComment').click(function(e) {
+    console.log("It works!");
+    e.preventDefault();
+    console.log($(this));
+      var formData = $('#commentForm').serialize();
+      console.log(formData);
+
+    $.ajax({
+        method: "POST",
+        url: postStationUrl,
+        data: formData,
+        success: function (data) {
+          console.log(data);
+        var html = template(data);
+        $('#stations').append(html);
+        }
+      });
+
   });
-  // $(document).ready(function() {
-  // initListeners();
-  // console.log('app.js loaded!');
-  // $.get('/api/stations').success(function (stations) {
-  //   stations.forEach(function(station, index) { 
-  //     renderStation(station, index);
-  //   });  // forEach
-  // });  // $.get
 
-// // Comment Form for Adding a new Comment on an Existing Station
-//   $(".comment-form").on("submit", function(event){
-//     event.preventDefault();
-//     var comments = ($( this ).serialize());
-//     var whichModal = $(this).attr('id');
-//     console.log(whichModal);
-//     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
-//     console.log("THIS STATION ID: " , thisStationID);
-//     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
-//       console.log(data);
-//       // render data on modal?
+  // // Comment Form for Adding a new Comment on an Existing Station
+  // $(".comment-form").on("submit", function(event){
+  //   event.preventDefault();
+  //   var comments = ($( this ).serialize());
+  //   var whichModal = $(this).attr('id');
+  //   console.log(whichModal);
+  //   var thisStationID = $('.row.station').eq(0).attr('data-station-id');
+  //   console.log("THIS STATION ID: " , thisStationID);
+  //   $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
+  //     console.log(data);
+  //     // render data on modal?
 
-//       // clear form
-//     $('.comment-form').trigger('reset');
-//      });
-//   });
+  //     // clear form
+  //   $('.comment-form').trigger('reset');
+  //    });
+  // });
+
+}); 
+
+
 
 // // Deleting Station Comment
 //   $('body').on('click', '.delete', function(e){
