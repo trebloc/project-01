@@ -92,12 +92,15 @@
                     <h4 class='inline-header'>Total Docks:</h4>
                       <span class='station-docks'>{{totalDocks}}</span>
                   </li>   
-                  <li class='list-group-item'>
+                  <li class='list-group-item' data-comment-id='{{_id}}'>
                     <h4 class='inline-header'>Comments:</h4>
                     {{#each comments}}
                       <span class='station-comments'><p>User Name: {{userName}}</p></span>
                       <span class='station-comments'><p>Comment Type: {{commentType}}</p></span>
-                      <span class='station-comments'><p>Comment Type: {{userComment}}</p></span>                      
+                      <span class='station-comments'><p>Comment Type: {{userComment}}</p></span>
+                      <span class='station-comments'>              <div>
+                <button class='btn btn-danger delete-comment'>Delete Comment</button>
+              </div></span>                      
                     {{/each}}
                   </li>                   
                   <li class='list-group-item'>

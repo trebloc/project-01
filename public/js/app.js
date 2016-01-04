@@ -23,11 +23,12 @@ $('#stations').on('submit', '.comment-form', function(e) {
     e.preventDefault();
     console.log($(this));
     var id = $(this).parents('.station').data('station-id');
+    var commentID = $(this).parents('.station').data('comment-id');
     var formData = $(this).serialize();
       //console.log(formData);
     $.ajax({
         method: "POST",
-        url: ('/api/stations/' + id + '/comments'),
+        url: ('/api/stations/' + id + '/comments' + commentID),
         data: formData,
         success: function (data) {
           console.log(data);
@@ -36,4 +37,25 @@ $('#stations').on('submit', '.comment-form', function(e) {
         }      
    }); 
 });
-});   
+
+
+// Comment Delete
+  $('#stations').on('click', '.delete-comment', function(e) {
+    console.log("It Works!");
+    var id = $(this).parents('.station').data('station-id');
+        var commentID = $(this).parents('.station').data('comment-id');
+
+    console.log("this is the comment id", commentID);
+
+    $.ajax({
+      method: 'DELETE',
+      url: ('/api/stations/' + id + '/comments/' + id),
+      success: function() {
+        console.log("Comment Deleted!");
+        $('[data-comment-id=' + id + ']').remove();
+      }   
+    });
+  });
+
+});
+  
