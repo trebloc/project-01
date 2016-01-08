@@ -80,11 +80,11 @@ app.delete('/api/stations/:stationId/comments/:id', function commentIndex(req, r
   console.log("stationId is: ", stationId);
   var id = req.params.id;
   console.log('deleting id:', req.params.id);
-
   //TODO 1: find station in db
   db.Station.findOne({_id: stationId}, function(err, station) {
       // TODO 2: remove comment with commentID from station.comments array
       var foundComment = station.comments.id(id);
+      console.log("ID: " , foundComment);
       foundComment.remove();  
       // TODO 3: save station document
       station.save(function (err, success) {

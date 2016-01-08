@@ -33,6 +33,10 @@
 	width: 50%;
 }
 
+p {
+  font-size: 15px;
+}
+
 li {list-style-type: none;}
 
 .modal-footer {

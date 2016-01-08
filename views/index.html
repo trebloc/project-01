@@ -54,6 +54,19 @@
   </section>
 
 <!-- handlebars template to render-->
+
+<script id="newComment-template" type="text/x-handlebars-template">
+
+<!-- Comments Being Submitted -->
+<div data-comment-id='{{_id}}'>
+  <span class='station-comments'><p>User Name: {{userName}}</p></span>
+  <span class='station-comments'><p>Comment Type: {{commentType}}</p></span>
+  <span class='station-comments'><p>Comment: {{userComment}}</p></span>
+  <span class='station-comments'>
+</div>
+// new template for appending new comment ajax
+</script>
+
 <script id="current-station-template" type="text/x-handlebars-template">
 
   <!-- one station -->
@@ -66,7 +79,7 @@
                 <ul class='list-group'>
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Map:</h4>
-                      <span class='map'><div class='container' id='image'><iframe src="{{stationImage}}" width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe></div></span>
+                      <span class='map'><div class='container' id='image'><iframe src="{{stationImage}}" width='800' height='600' frameborder='0' style='border:0' allowfullscreen></iframe></div></span>
                   </li>
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Station:</h4>
@@ -92,21 +105,24 @@
                     <h4 class='inline-header'>Total Docks:</h4>
                       <span class='station-docks'>{{totalDocks}}</span>
                   </li>   
-                  <li class='list-group-item' data-comment-id='{{_id}}'>
+                  <li class='list-group-item'>
                     <h4 class='inline-header'>Comments:</h4>
                     {{#each comments}}
+                    <div data-comment-id='{{_id}}'>
                       <span class='station-comments'><p>User Name: {{userName}}</p></span>
                       <span class='station-comments'><p>Comment Type: {{commentType}}</p></span>
-                      <span class='station-comments'><p>Comment Type: {{userComment}}</p></span>
-                      <span class='station-comments'>              <div>
+                      <span class='station-comments'><p>Comment: {{userComment}}</p></span>
+                      <span class='station-comments'>
+                    <div>
                 <button class='btn btn-danger delete-comment'>Delete Comment</button>
-              </div></span>                      
+              </div></span>  
+              <span class='station-comments'><p><hr></p></span>  
+                  </div>                  
                     {{/each}}
                   </li>                   
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Comments Submission:</h4>
-                  </li>
-                  <li class='list-group-item'> 
+
                     <!-- Comment Form -->      
                       <form class="comment-form" id ="commentForm"> 
                         <div class="container" >  
