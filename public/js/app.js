@@ -85,6 +85,8 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).find('input#stationId').attr('value', stationId);
     $.get('api/stations/' + stationId + '/comments', function (comments) {
       console.log('Comments: ', comments);
+      // clear all present comments
+      modal.find("#comments").html("");
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
           modal.find("#comments").append("<div class='IDComment' data-comment-id='" + comment._id + "'>");
