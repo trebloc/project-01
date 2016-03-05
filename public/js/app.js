@@ -1,4 +1,4 @@
-  $(document).ready(function() {
+$(document).ready(function() {
   initListeners();
   console.log('app.js loaded!');
   $.get('/api/stations').success(function (stations) {
@@ -16,12 +16,10 @@
     var thisStationID = $('.row.station').eq(0).attr('data-station-id');
     console.log("THIS STATION ID: " , thisStationID);
     $.post('/api/stations/' + thisStationID + '/comments', comments, function(data){
-      console.log(data);
-      // render data on modal?
-
+      console.log(data);    
       // clear form
-    $('.comment-form').trigger('reset');
-     });
+      $('.comment-form').trigger('reset');    
+    });     
   });
 
 // Deleting Station Comment
@@ -85,7 +83,7 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).find('span.station-city').text(city);
     $(this).find('span.station-total-docks').text(totalDocks);
     $(this).find('input#stationId').attr('value', stationId);
-    $.get('/api/stations/' + stationId + '/comments', function (comments) {
+    $.get('api/stations/' + stationId + '/comments', function (comments) {
       console.log('Comments: ', comments);
       comments.forEach(function(comment) {
         //console.log(" JC: ",comment._id);
