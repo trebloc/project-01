@@ -93,7 +93,7 @@ $('.modal').on('shown.bs.modal', function () {
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>User Name: </strong> " + comment.userName + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment Type: </strong>" + comment.commentType + "</p>");
           modal.find('[data-comment-id=' + comment._id + ']').append("<p><strong>Comment: </strong>" + comment.userComment + "</p><br>");
-          modal.find('[data-comment-id=' + comment._id + ']').append('<button type="button" class="btn btn-danger delete"  data-station-id="' + stationId + '"data-delcomment-id="' + comment._id + '" >Delete</button><hr></div>');
+          modal.find('[data-comment-id=' + comment._id + ']').append('<button type="button" class="btn btn-danger delete"  data-station-id="' + stationId + '"data-delcomment-id="' + comment._id + '" >Delete</button></div>');
       });
     });
   });
@@ -126,11 +126,13 @@ function renderStation(station, index) {
   "              <!-- begin station internal row -->" +
   "                <div class='row'>" +
   "                  <div class='container' id='image'>" + 
-  "                     <iframe src=" + station.stationImage + " width='400' height='300' frameborder='0' style='border:0' allowfullscreen></iframe>" +
   "                  </div>" +  
   "                  <div class='container'>" + 
   "                  <div class='col-md-9 .col-lg-12'>" +
   "                    <ul class='list-group'>" +
+  "                      <li class='list-group-item'>" +  
+  "                        <iframe class='embed-responsive-item' id='image' src=" + station.stationImage + " width='790' height='500' frameborder='0' style='border:0' allowfullscreen></iframe>" +
+  "                      </li>" + 
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Station Name:</h4>" +
   "                        <span class='station-name'><a href='#modal" + index + "' data-toggle='modal'>" + station.stationName + "</a></span>" +
