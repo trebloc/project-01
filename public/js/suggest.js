@@ -93,6 +93,7 @@ $(document).on('ready', function() {
 		  	data: formData,
 	    	success: function (data) {
 	    		console.log(data);
+	    	$('.form-horizontal').trigger('reset'); 	
 				var html = template(data);
 				$('#suggest').append(html);
 		    }
@@ -100,7 +101,7 @@ $(document).on('ready', function() {
 
 	});	
 	  	
-// Suggestion Station Delte
+// Suggestion Station Delete
 	$('#suggest').on('click', '.delete-station', function(e) {
 		console.log("It Works!");
 		var id = $(this).parents('.station').data('station-id');
