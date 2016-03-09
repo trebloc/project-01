@@ -131,7 +131,7 @@ function renderStation(station, index) {
   "                  <div class='col-md-9 .col-lg-12'>" +
   "                    <ul class='list-group'>" +
   "                      <li class='list-group-item'>" +  
-  "                        <iframe class='embed-responsive-item' id='image' src=" + station.stationImage + " width='790' height='500' frameborder='0' style='border:0' allowfullscreen></iframe>" +
+  "                        <iframe class='embed-responsive-item' id='image' src=" + station.stationImage + " width='400' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>" +
   "                      </li>" + 
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Station Name:</h4>" +
