@@ -67,3 +67,26 @@ footer {
 	color: white;
 	padding-left: 65px;
 }
+
+@media (max-width:375px){
+
+ * {
+  box-sizing: border-box;
+ } 
+
+.list-group-item:nth-child(1){
+  position:relative;
+  height: 300px;
+
+}
+
+
+  #image{
+    position: absolute;
+    top: 0;
+    left:0;
+    max-width:285px;
+
+  }
+
+}
